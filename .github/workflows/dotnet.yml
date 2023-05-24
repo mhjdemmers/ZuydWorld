@@ -5,7 +5,6 @@ name: .NET
 
 on:
   push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
@@ -28,9 +27,3 @@ jobs:
       run: dotnet test --no-build --verbosity normal
     - name: Publish
       run: dotnet publish ZuydWorld/ZuydWorld.csproj -c Release -o website
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: website
-        path: ZuydWorld/website/**
-        if-no-files-found: error
