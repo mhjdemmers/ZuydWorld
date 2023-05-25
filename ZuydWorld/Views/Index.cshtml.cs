@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace ZuydWorld.Pages
+namespace ZuydWorld.Views
 {
     public class IndexModel : PageModel
     {
