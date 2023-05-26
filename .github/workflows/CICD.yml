@@ -27,4 +27,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: mhjdemmers/mywebapp:latest  # Please change the username here
+          tags: mhjdemmers/mywebapp:latest
