@@ -46,6 +46,43 @@
             margin-left: 200px; /* Pas dit aan op basis van de breedte van je zijbalk */
             padding: 10px;
         }
+
+        .game {
+            display: inline-block;
+            position: relative;
+        }
+
+            .game img {
+                width: 200px; /* Pas de gewenste breedte aan */
+                height: 200px; /* Pas de gewenste hoogte aan */
+                object-fit: cover; /* Behoud de verhoudingen van de afbeelding */
+            }
+
+        .game-details {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Pas de gewenste achtergrondkleur en transparantie aan */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0; /* Start met een onzichtbare weergave */
+            transition: opacity 0.3s ease;
+        }
+
+        .game:hover .game-details {
+            opacity: 1; /* Maak de details zichtbaar bij het zweven met de cursor */
+        }
+
+        .game-name, .like-percentage {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
     </style>
 </head>
 <body>
@@ -69,7 +106,19 @@
         <!-- Voeg hier meer categorieën toe -->
     </div>
     <div class="content">
-        <!-- Voeg hier de rest van je inhoud toe -->
+        <div class="content">
+            <div class="game">
+                <img src="c:\users\andy\desktop\zuydworld\zuydworld\zuydworld\views\home\chess.jpg" />
+                <div class="game-details">
+                    <span class="game-name">Chess</span>
+                    <span class="like-percentage">85% likes</span>
+                </div>
+            </div>
+
+            <!-- Voeg hier meer spellen toe -->
+        </div>
+
+
     </div>
 </body>
 </html>
