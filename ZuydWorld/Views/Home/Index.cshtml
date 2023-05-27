@@ -67,6 +67,7 @@
 
         .game-row {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
         }
 
@@ -74,38 +75,71 @@
             width: calc(25% - 20px); /* Verdeel de beschikbare breedte in 4 delen met een marge van 20px */
             margin-bottom: 20px;
             position: relative;
+            overflow: hidden; /* Voeg overflow toe om de game-details te verbergen */
         }
 
             .game img {
                 width: 100%; /* Gebruik de volledige breedte van de container */
                 height: 100%; /* Gebruik de volledige hoogte van de container */
                 object-fit: cover;
+                transition: filter 0.3s ease; /* Voeg een overgang toe voor de helderheid */
+            }
+
+            .game:hover img {
+                filter: brightness(80%); /* Maak de afbeelding lichter bij het zweven met de cursor */
             }
 
         .game-details {
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Pas de gewenste achtergrondkleur en transparantie aan */
-            color: white;
+            background-color: #c8e0ff;
+            color: black;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            opacity: 0; /* Start met een onzichtbare weergave */
-            transition: opacity 0.3s ease;
+            padding: 5px 10px;
+            font-size: 14px;
+            transform: translateY(100%); /* Verberg de details buiten het zicht */
+            transition: transform 0.3s ease;
         }
 
         .game:hover .game-details {
-            opacity: 1; /* Maak de details zichtbaar bij het zweven met de cursor */
+            transform: translateY(0); /* Toon de details bij het zweven met de cursor */
         }
 
-        .game-name, .like-percentage {
-            font-size: 16px;
-            margin-bottom: 5px;
+        .game-name,
+        .like-percentage {
+            margin: 0;
         }
+
+        .like-percentage {
+            background-color: #a1bbff;
+            padding: 5px 10px;
+        }
+
+        .favorite {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+            .favorite:before {
+                content: "\2606"; /* Unicode voor leeg sterretje */
+                color: #fff;
+                font-size: 20px;
+            }
+
+            .favorite.active:before {
+                content: "\2605"; /* Unicode voor gevuld sterretje */
+                color: yellow;
+            }
     </style>
 </head>
 <body>
@@ -134,34 +168,48 @@
     <div class="content">
         <div class="game-row">
             <div class="game">
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/00057806_001.jpg?raw=true">
                 <div class="game-details">
                     <span class="game-name">Chess</span>
                     <span class="like-percentage">85% likes</span>
                 </div>
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/00057806_001.jpg?raw=true">
+                <button class="favorite"></button>
             </div>
             <div class="game">
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/tictactoe.png?raw=true">
                 <div class="game-details">
                     <span class="game-name">Tic Tac Toe</span>
                     <span class="like-percentage">85% likes</span>
                 </div>
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/tictactoe.png?raw=true">
+                <button class="favorite"></button>
             </div>
             <div class="game">
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/pacman.jpg?raw=true">
                 <div class="game-details">
                     <span class="game-name">Pac Man</span>
                     <span class="like-percentage">85% likes</span>
                 </div>
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/pacman.jpg?raw=true">
+                <button class="favorite"></button>
             </div>
             <div class="game">
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/tetris.jpg?raw=true">
                 <div class="game-details">
                     <span class="game-name">Tetris</span>
                     <span class="like-percentage">85% likes</span>
                 </div>
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/tetris.jpg?raw=true">
+                <button class="favorite"></button>
             </div>
         </div>
+        <!-- Voeg hier meer game-rijen toe -->
     </div>
+
+    <script>
+        const favorites = document.querySelectorAll('.favorite');
+    favorites.forEach((favorite) => {
+            favorite.addEventListener('click', () => {
+                favorite.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
