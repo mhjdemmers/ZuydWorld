@@ -7,13 +7,39 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ZuydWorld.styles.css" asp-append-version="true" />
+    <style>
+        .navbar-brand {
+            background-color: #487de5;
+            padding: 5px; /* Pas de gewenste padding rondom het logo aan */
+            display: inline-block; /* Hierdoor past de achtergrondkleur zich aan de grootte van het logo aan */
+        }
+        .navbar-brand img {
+            height: 30px; /* Pas de hoogte van het logo naar wens aan */
+            width: auto; /* Hierdoor schaalt de breedte automatisch in verhouding tot de hoogte */
+            vertical-align: middle; /* Hiermee wordt het logo verticaal gecentreerd binnen de achtergrond */
+        }
 
+            .navbar-brand .logo-text {
+                color: white;
+                margin-left: 5px; /* Pas de gewenste marge aan tussen het logo en de tekst */
+                font-weight: bold; /* Optioneel: pas de letterdikte aan naar wens */
+            }
+
+        .navbar {
+            background-color: #7cbcff;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ZuydWorld</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/zuyd%20logo.png?raw=true" alt="ZuydWorld Logo">
+                    <span class="logo-text">ZuydWorld</span>
+                </a>
+
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
