@@ -1,7 +1,10 @@
-﻿namespace ZuydWorld.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ZuydWorld.Models
 {
     public class Comment
     {
+        [Key]
         public int Id { get; set; }
         public User User { get; set; }
         public Game Game { get; set; }

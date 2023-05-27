@@ -1,7 +1,10 @@
-﻿namespace ZuydWorld.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ZuydWorld.Models
 {
     public class Game
     {
+        [Key]
         public int Id { get; set; }
         public string GameName { get; set; }
         public Leaderboard? Scoreboard { get; set; }
