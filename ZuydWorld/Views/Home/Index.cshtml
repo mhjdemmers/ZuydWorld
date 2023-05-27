@@ -30,11 +30,7 @@
         .arrow-right {
             right: 10px; /* Aanpassen naar de gewenste afstand vanaf de rechterkant */
         }
-        .header {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-        }
+
 
         .sidebar {
             background-color: #7cbcff;
@@ -69,15 +65,21 @@
             padding: 10px;
         }
 
+        .game-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
         .game {
-            display: inline-block;
+            width: calc(25% - 20px); /* Verdeel de beschikbare breedte in 4 delen met een marge van 20px */
+            margin-bottom: 20px;
             position: relative;
         }
 
             .game img {
-                width: 200px; /* Pas de gewenste breedte aan */
-                height: 200px; /* Pas de gewenste hoogte aan */
-                object-fit: cover; /* Behoud de verhoudingen van de afbeelding */
+                width: 100%; /* Gebruik de volledige breedte van de container */
+                height: 100%; /* Gebruik de volledige hoogte van de container */
+                object-fit: cover;
             }
 
         .game-details {
@@ -104,7 +106,6 @@
             font-size: 16px;
             margin-bottom: 5px;
         }
-
     </style>
 </head>
 <body>
@@ -131,33 +132,36 @@
     <div class="arrow arrow-right">&rarr;</div>
 
     <div class="content">
-        <div class="content">
+        <div class="game-row">
             <div class="game">
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/00057806_001.jpg?raw=true">
                 <div class="game-details">
                     <span class="game-name">Chess</span>
                     <span class="like-percentage">85% likes</span>
                 </div>
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/00057806_001.jpg?raw=true">
             </div>
             <div class="game">
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/tictactoe.png?raw=true">
                 <div class="game-details">
                     <span class="game-name">Tic Tac Toe</span>
                     <span class="like-percentage">85% likes</span>
                 </div>
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/tictactoe.png?raw=true">
             </div>
             <div class="game">
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/pacman.jpg?raw=true">
                 <div class="game-details">
                     <span class="game-name">Pac Man</span>
                     <span class="like-percentage">85% likes</span>
                 </div>
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/pacman.jpg?raw=true">
             </div>
-
-            <!-- Voeg hier meer spellen toe -->
+            <div class="game">
+                <div class="game-details">
+                    <span class="game-name">Tetris</span>
+                    <span class="like-percentage">85% likes</span>
+                </div>
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/tetris.jpg?raw=true">
+            </div>
         </div>
-
-
     </div>
 </body>
 </html>
