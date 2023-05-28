@@ -3,11 +3,6 @@
 <head>
     <title>Mijn Spelletjeswebsite</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-        }
-
         .arrow {
             position: fixed;
             top: calc(50% - 20px); /* Verticaal gecentreerd */
@@ -22,73 +17,48 @@
             cursor: pointer;
             z-index: 1;
         }
-
         .arrow-left {
-            left: 153px; /* Aanpassen naar de gewenste afstand vanaf de linkerkant */
+            left: 175px; /* Aanpassen naar de gewenste afstand vanaf de linkerkant */
         }
-
         .arrow-right {
             right: 10px; /* Aanpassen naar de gewenste afstand vanaf de rechterkant */
         }
 
-
-        .sidebar {
-            background-color: #7cbcff;
-            color: #101010;
-            padding: 10px;
-            position: fixed;
-            top: 54px; /* Hoogte van de bovenste balk */
-            left: 0;
-            height: calc(100vh - 50px); /* Hoogte van het viewport minus de bovenste balk */
-            overflow-y: auto; /* Scrollbalk toevoegen indien nodig */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
         }
-
         .category {
             background-color: white;
             margin-bottom: 5px;
-            padding: 5px;
-            cursor: pointer;
+            padding: 15px;
+            cursor: pointer;    
             font-weight: bold;
             font-size: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding-top: 10px;
         }
-
             .category.home {
                 background-color: #6266a5;
                 color: white;
+                padding-top: 10px;
             }
-
         .content {
             margin-left: 200px; /* Pas dit aan op basis van de breedte van je zijbalk */
             padding: 10px;
         }
-
-        .game-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+        .empty-space {
+            height: 20px; /* Hoogte van de lege ruimte */
         }
-
         .game {
             width: calc(25% - 20px); /* Verdeel de beschikbare breedte in 4 delen met een marge van 20px */
             margin-bottom: 20px;
             position: relative;
             overflow: hidden; /* Voeg overflow toe om de game-details te verbergen */
+            cursor: pointer;
         }
-
-            .game img {
-                width: 100%; /* Gebruik de volledige breedte van de container */
-                height: 100%; /* Gebruik de volledige hoogte van de container */
-                object-fit: cover;
-                transition: filter 0.3s ease; /* Voeg een overgang toe voor de helderheid */
-            }
-
-            .game:hover img {
-                filter: brightness(80%); /* Maak de afbeelding lichter bij het zweven met de cursor */
-            }
-
         .game-details {
             position: absolute;
             bottom: 0;
@@ -104,22 +74,6 @@
             transform: translateY(100%); /* Verberg de details buiten het zicht */
             transition: transform 0.3s ease;
         }
-
-
-        .game:hover .game-details {
-            transform: translateY(0); /* Toon de details bij het zweven met de cursor */
-        }
-
-        .game-name,
-        .like-percentage {
-            margin: 0;
-        }
-
-        .like-percentage {
-            background-color: #a1bbff;
-            padding: 5px 10px;
-        }
-
         .favorite {
             position: absolute;
             top: 10px;
@@ -131,7 +85,6 @@
             cursor: pointer;
             
         }
-
             .favorite:before {
                 content: "\2606"; /* Unicode voor leeg sterretje */
                 color: #fff;
@@ -142,13 +95,63 @@
                 content: "\2605"; /* Unicode voor gevuld sterretje */
                 color: yellow;
             }
+            .game img {
+                width: 100%; /* Gebruik de volledige breedte van de container */
+                height: 100%; /* Gebruik de volledige hoogte van de container */
+                object-fit: cover;
+                transition: filter 0.3s ease; /* Voeg een overgang toe voor de helderheid */
+            }
+            .game:hover img {
+                filter: brightness(80%); /* Maak de afbeelding lichter bij het zweven met de cursor */
+            }
+        .game:hover .game-details {
+            transform: translateY(0); /* Toon de details bij het zweven met de cursor */
+        }
+        .game-name,
+        .like-percentage {
+            margin: 0;
+        }
+        .game-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .like-percentage {
+            background-color: #a1bbff;
+            padding: 5px 10px;
+        }
+        .sidebar {
+            background-color: #7cbcff;
+            color: #101010;
+            padding: 10px;
+            position: fixed;
+            top: 60px; /* Hoogte van de bovenste balk */
+            left: 0;
+            height: calc(100vh - 50px); /* Hoogte van het viewport minus de bovenste balk */
+            overflow-y: auto; /* Scrollbalk toevoegen indien nodig */
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
     </style>
 </head>
 <body>
     <div class="header">
         <!-- Inhoud van de bovenste balk -->
+
     </div>
     <div class="sidebar">
+        <div class="empty-space"></div>
         <div class="category home">Home</div>
         <div class="category">Random Game</div>
         <div class="category">New Games</div>
