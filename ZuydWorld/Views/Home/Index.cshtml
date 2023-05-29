@@ -63,6 +63,8 @@
             overflow: hidden; /* Voeg overflow toe om de game-details te verbergen */
             cursor: pointer;
             border-radius: 10px;
+            border: 5px solid #000;
+            background-color: #EBEBEB;
         }
         .game-details {
             position: absolute;
@@ -81,8 +83,8 @@
         }
         .favorite {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: -8px;
+            right: 25px;
             width: 20px;
             height: 20px;
             background-color: transparent;
@@ -93,7 +95,10 @@
             .favorite:before {
                 content: "\2606"; /* Unicode voor leeg sterretje */
                 color: #fff;
-                font-size: 20px;
+                font-size: 40px;
+            }
+            .favorite:hover:before {
+                color: yellow;
             }
 
             .favorite.active:before {
@@ -106,9 +111,14 @@
                 object-fit: cover;
                 transition: filter 0.3s ease; /* Voeg een overgang toe voor de helderheid */
             }
-            .game:hover img {
-                filter: brightness(80%); /* Maak de afbeelding lichter bij het zweven met de cursor */
+
+        .game:hover img {
+                filter: brightness(50%); /* Maak de afbeelding lichter bij het zweven met de cursor */
             }
+        .game:hover {
+            background-color: #767676;
+        }
+
         .game:hover .game-details {
             transform: translateY(0); /* Toon de details bij het zweven met de cursor */
         }
@@ -170,15 +180,15 @@
     <div class="content">
         <div class="game-row">
             <div class="game">
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/00057806_001.jpg?raw=true">
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/checkers.jpg?raw=true">
                 <div class="game-details">
-                    <span class="game-name">Chess</span>
+                    <span class="game-name">Checkers</span>
                     <span class="like-percentage">85% likes</span>
                 </div>
                 <button class="favorite"></button>
             </div>
             <div class="game">
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/tictactoe.png?raw=true">
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/ttt.png?raw=true">
                 <div class="game-details">
                     <span class="game-name">Tic Tac Toe</span>
                     <span class="like-percentage">85% likes</span>
