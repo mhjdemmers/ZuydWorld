@@ -44,10 +44,20 @@
             padding-top: 10px;
             border-radius: 10px;
         }
+
+        .category:hover {
+                background-color: #6E86FF;
+                color: #fff;
+        }
             .category.home {
                 background-color: #6266a5;
                 color: white;
                 padding-top: 10px;
+            }
+
+            .category.home:hover {
+                    background-color: #6E86FF;
+                    color: #fff;
             }
         .content {
             margin-left: 300px; /* Pas dit aan op basis van de breedte van je zijbalk */
@@ -146,13 +156,24 @@
             width: 250px; /* Pas de waarde naar wens aan */
             height: calc(100vh - 50px); /* Hoogte van het viewport minus de bovenste balk */
             overflow-y: auto; /* Scrollbalk toevoegen indien nodig */
+            z-index: 0;
         }
-
+    #LogoRectangle{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width:265px;
+        height:77px;
+        background-color: #4C7DDD;
+        border-bottom-right-radius: 10px;
+        z-index: 2;
+    }
 
 
     </style>
 </head>
 <body>
+    <div id="LogoRectangle"></div>
     <div class="header">
         <!-- Inhoud van de bovenste balk -->
 

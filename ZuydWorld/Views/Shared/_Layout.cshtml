@@ -19,16 +19,33 @@
     background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
     height: 100%;
 }
+        .LogoUyd {
+            z-index: 3;
+        }
 
+        .LogoUyd img {
+                position: absolute;
+                left: 5px;
+                top: 10px;
+                height: 55px;
+                width: auto;
+        }
+
+        .LogoUyd .logo-text {
+                color: white;
+                font-weight: bold; /* Optioneel: pas de letterdikte aan naar wens */
+                font-size: 30px;
+                position:absolute;
+                left: 95px;
+                top: 15px;
+        }
 
         .navbar-brand {
-            background-color: #487de5;
-            padding: 5px; /* Pas de gewenste padding rondom het logo aan */
-            display: inline-block; /* Hierdoor past de achtergrondkleur zich aan de grootte van het logo aan */
+            z-index: 3;
         }
 
             .navbar-brand img {
-                height: 36px; /* Pas de hoogte van het logo naar wens aan */
+                height: 50px; /* Pas de hoogte van het logo naar wens aan */
                 width: auto; /* Hierdoor schaalt de breedte automatisch in verhouding tot de hoogte */
                 vertical-align: middle; /* Hiermee wordt het logo verticaal gecentreerd binnen de achtergrond */
             }
@@ -68,18 +85,34 @@
         }
 
             .navbar-icons img {
-                height: 30px;
+                height: 35px;
                 width: auto;
                 margin-left: 0px;
             }
+
+                    .navbar-icons img:hover {
+                        content: url('https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/ProfileHover.png?raw=true');
+                    }
+
+                    .navbar-icons img:hover:nth-of-type(2) {
+                        content: url('https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/FavHover.png?raw=true');
+                    }
+
+                    .navbar-icons img:hover:nth-of-type(3) {
+                        content: url('https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/RecentHover.png?raw=true');
+                    }
+
+                    .navbar-icons img:hover:nth-of-type(4) {
+                        content: url('https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/BelHover.png?raw=true');
+                    }
     </style>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-7cbcff border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/zuyd%20logo.png?raw=true" alt="ZuydWorld Logo">
+                <a class="LogoUyd" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/LogoWit.png?raw=true" alt="ZuydWorld Logo">
                     <span class="logo-text">ZuydWorld</span>
                 </a>
 
@@ -91,7 +124,7 @@
                     <span class="username" style="color: white;">Username</span>
 
                     <div class="navbar-icons">
-                        <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/Profiel.png?raw=true" alt="Speler">
+                        <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/Profiel.png?raw=true" alt="Profiel">
                         <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/Favoriet.png?raw=true" alt="Favoriet">
                         <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/Recent.png?raw=true" alt="Recent">
                         <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/Bel.png?raw=true" alt="Bel">
