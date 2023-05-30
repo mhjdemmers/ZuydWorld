@@ -9,36 +9,53 @@
     <link rel="stylesheet" href="~/ZuydWorld.styles.css" asp-append-version="true" />
     <style>
         .level-bar {
+            outline: 2px solid black;
             background-color: #f3f3f3;
             height: 10px;
-            width: 80%;
-            margin-top: 30px; /* Pas de gewenste afstand aan */
+            width: 60%;
+            margin-left: 270px;
+            margin-top: 30px;
+            border-radius: 50px;
+            position: relative;
         }
 
         .level-progress {
-    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-    height: 100%;
-}
+            background: linear-gradient(to right, #ff0000, #ff7b00, #9eff04, #00ff3f, #00e7ff, #4602fc, #ff20d4);
+            height: 100%;
+            border-radius: 50px;
+            width: 60%; /* Standaard breedte */
+        }
+
+        .level-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
         .LogoUyd {
             z-index: 3;
         }
 
-        .LogoUyd img {
+            .LogoUyd img {
                 position: absolute;
                 left: 5px;
                 top: 10px;
                 height: 55px;
                 width: auto;
-        }
+            }
 
-        .LogoUyd .logo-text {
+            .LogoUyd .logo-text {
                 color: white;
                 font-weight: bold; /* Optioneel: pas de letterdikte aan naar wens */
                 font-size: 30px;
-                position:absolute;
+                position: absolute;
                 left: 95px;
                 top: 15px;
-        }
+            }
 
         .navbar-brand {
             z-index: 3;
@@ -64,6 +81,7 @@
             display: flex;
             align-items: center;
             margin-left: auto;
+
         }
 
             .user-info .username {
@@ -88,11 +106,12 @@
                 height: 35px;
                 width: auto;
                 margin-left: 0px;
+
             }
 
-                    .navbar-icons img:hover {
-                        content: url('https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/ProfileHover.png?raw=true');
-                    }
+                .navbar-icons img:hover {
+                    content: url('https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/ProfileHover.png?raw=true');
+                }
 
                     .navbar-icons img:hover:nth-of-type(2) {
                         content: url('https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/FavHover.png?raw=true');
@@ -105,6 +124,25 @@
                     .navbar-icons img:hover:nth-of-type(4) {
                         content: url('https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/BelHover.png?raw=true');
                     }
+
+        .search-icon {
+            background-image: url('https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/zoek.png?raw=true');
+            background-repeat: no-repeat;
+            background-position: 5% center;
+            padding-left: 35px;
+            border-radius: 50px; /* Toegevoegde regel voor afgeronde hoeken */
+            width: 220px; /* Pas de gewenste breedte aan */
+
+        }
+
+        .search-box {
+            background-color: #6fa1ff;
+            padding: 9px;
+            padding-left:20px;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+        }
     </style>
 </head>
 <body>
@@ -117,8 +155,11 @@
                 </a>
 
                 <div class="level-bar">
-                    <div class="level-progress" style="width: 100%;"></div>
+                    <div class="level-progress" style="width: 80%;"></div>
+                    <div class="level-text">X/100xp</div> <!-- Nieuwe div voor de tekst -->
                 </div>
+
+
 
                 <div class="user-info">
                     <span class="username" style="color: white;">Username</span>
@@ -137,9 +178,11 @@
                 </button>
 
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <form class="d-flex ms-auto">
-                        <input class="form-control me-2" type="search" placeholder="Zoeken" aria-label="Zoeken">
-                    </form>
+                    <div class="search-box">
+                        <form class="d-flex">
+                            <input class="form-control me-2 search-icon" type="search" placeholder="Search" aria-label="Search">
+                        </form>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -161,5 +204,12 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var xpPercentage = 100;
+            var levelProgress = document.querySelector(".level-progress");
+            levelProgress.style.width = xpPercentage + "%";
+        });
+    </script>
 </body>
 </html>
