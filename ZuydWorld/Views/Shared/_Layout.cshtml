@@ -57,22 +57,6 @@
                 top: 15px;
             }
 
-        .navbar-brand {
-            z-index: 3;
-        }
-
-            .navbar-brand img {
-                height: 50px; /* Pas de hoogte van het logo naar wens aan */
-                width: auto; /* Hierdoor schaalt de breedte automatisch in verhouding tot de hoogte */
-                vertical-align: middle; /* Hiermee wordt het logo verticaal gecentreerd binnen de achtergrond */
-            }
-
-            .navbar-brand .logo-text {
-                color: white;
-                margin-left: 5px; /* Pas de gewenste marge aan tussen het logo en de tekst */
-                font-weight: bold; /* Optioneel: pas de letterdikte aan naar wens */
-            }
-
         .navbar {
             background-color: #7cbcff;
         }
@@ -80,33 +64,32 @@
         .user-info {
             display: flex;
             align-items: center;
-            margin-left: auto;
+            margin-left: -20px;
 
         }
 
             .user-info .username {
                 color: white;
-                margin-right: 0px;
+                margin-right: auto;
             }
 
-            .user-info img {
+/*            .user-info img {
                 height: 20px;
                 width: auto;
                 margin-right: 5px;
-            }
+            }*/
 
         .navbar-icons {
             display: flex;
             align-items: center;
-            margin-left: 10px;
             cursor: pointer;
+            position: fixed;
         }
 
             .navbar-icons img {
                 height: 35px;
                 width: auto;
-                margin-left: 0px;
-
+                padding-left: 5px;
             }
 
                 .navbar-icons img:hover {
@@ -162,14 +145,9 @@
 
 
                 <div class="user-info">
-                    <span class="username" style="color: white;">Username</span>
+                    <span class="username" style="color: white;" font="bold">Username</span>
 
-                    <div class="navbar-icons">
-                        <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/Profiel.png?raw=true" alt="Profiel">
-                        <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/Favoriet.png?raw=true" alt="Favoriet">
-                        <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/Recent.png?raw=true" alt="Recent">
-                        <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/Bel.png?raw=true" alt="Bel">
-                    </div>
+
                 </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -182,6 +160,12 @@
                         <form class="d-flex">
                             <input class="form-control me-2 search-icon" type="search" placeholder="Search" aria-label="Search">
                         </form>
+                    </div>
+                    <div class="navbar-icons">
+                        <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/Profiel.png?raw=true" alt="Profiel">
+                        <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/Favoriet.png?raw=true" alt="Favoriet">
+                        <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/Recent.png?raw=true" alt="Recent">
+                        <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/Bel.png?raw=true" alt="Bel">
                     </div>
                 </div>
             </div>
