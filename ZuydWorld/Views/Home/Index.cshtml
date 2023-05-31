@@ -5,7 +5,7 @@
     <style>
         .arrow {
             position: fixed;
-            top: calc(50% - 20px); /* Verticaal gecentreerd */
+            top: calc(50% - 20px);
             width: 40px;
             height: 40px;
             background-color: rgba(0, 0, 0, 0.5);
@@ -17,26 +17,28 @@
             cursor: pointer;
             z-index: 1;
         }
+
         .arrow-left {
-            left: 260px; /* Aanpassen naar de gewenste afstand vanaf de linkerkant */
+            left: 260px;
         }
+
         .arrow-right {
-            right: 10px; /* Aanpassen naar de gewenste afstand vanaf de rechterkant */
+            right: 10px;
         }
 
         body {
             font-family: Arial, sans-serif;
             margin: 0;
         }
+
         .category {
             background-color: white;
             margin-bottom: 15px;
             margin-left: 20px;
             margin-right: 20px;
             padding: 10px;
-            cursor: pointer;         
+            cursor: pointer;
             font-weight: bold;
-            font-family: Arial;
             font-size: 16px;
             display: flex;
             align-items: center;
@@ -45,65 +47,62 @@
             border-radius: 10px;
         }
 
-        .category:hover {
+            .category:hover,
+            .category.home:hover {
                 background-color: #6E86FF;
                 color: #fff;
-        }
+            }
+
             .category.home {
                 background-color: #6266a5;
                 color: white;
                 padding-top: 10px;
             }
 
-            .category.home:hover {
-                    background-color: #6E86FF;
-                    color: #fff;
-            }
         .content {
-            margin-left: 300px; /* Pas dit aan op basis van de breedte van je zijbalk */
+            margin-left: 300px;
             padding: 10px;
         }
+
         .empty-space {
-            height: 20px; /* Hoogte van de lege ruimte */
+            height: 20px;
         }
+
         .game {
-            width: calc(25% - 20px); /* Verdeel de beschikbare breedte in 4 delen met een marge van 20px */
+            width: calc(25% - 20px);
             margin-bottom: 20px;
             position: relative;
-            overflow: hidden; /* Voeg overflow toe om de game-details te verbergen */
+            overflow: hidden;
             cursor: pointer;
             border-radius: 10px;
             border: 5px solid #000;
             background-color: #EBEBEB;
         }
-        .game-detailshover {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #c8e0ff;
-            color: black;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 5px 10px;
-            font-size: 14px;
-            transform: translateY(100%); /* Verberg de details buiten het zicht */
-            transition: transform 0.3s ease;
-        }
 
+        .game-detailshover,
         .game-details {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            background-color: #c8e0ff;
-            color: black;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 5px 10px;
             font-size: 14px;
+            padding: 5px 10px;
+        }
+
+        .game-detailshover {
+            background-color: #c8e0ff;
+            color: black;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .game-details {
+            background-color: #a3a3a3;
+            color: White;
+            font-weight: bold;
         }
 
         .favorite {
@@ -115,48 +114,52 @@
             background-color: transparent;
             border: none;
             cursor: pointer;
-            
         }
+
             .favorite:before {
-                content: "\2606"; /* Unicode voor leeg sterretje */
+                content: "\2606";
                 color: #fff;
                 font-size: 40px;
             }
+
             .favorite:hover:before {
                 color: yellow;
             }
 
             .favorite.active:before {
-                content: "\2605"; /* Unicode voor gevuld sterretje */
+                content: "\2605";
                 color: yellow;
             }
-            .game img {
-                width: 100%; /* Gebruik de volledige breedte van de container */
-                height: 100%; /* Gebruik de volledige hoogte van de container */
-                object-fit: cover;
-                transition: filter 0.3s ease; /* Voeg een overgang toe voor de helderheid */
-            }
 
+        .game img {
+            width: 100%;
+            height: 81%;
+            object-fit: cover;
+        }
 
         .game:hover img {
-                filter: brightness(50%); /* Maak de afbeelding lichter bij het zweven met de cursor */
-            }
+            filter: brightness(50%);
+        }
+
         .game:hover {
             background-color: #767676;
         }
 
-        .game:hover .game-detailshover {
-            transform: translateY(0); /* Toon de details bij het zweven met de cursor */
-        }
+            .game:hover .game-detailshover {
+                transform: translateY(0);
+            }
+
         .game-name,
         .like-percentage {
             margin: 0;
         }
+
         .game-row {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
         }
+
         .like-percentage {
             background-color: #a1bbff;
             padding: 5px 10px;
@@ -167,32 +170,30 @@
             color: #101010;
             padding: 10px;
             position: fixed;
-            top: 60px; /* Hoogte van de bovenste balk */
+            top: 60px;
             left: 0;
-            width: 250px; /* Pas de waarde naar wens aan */
-            height: calc(100vh - 50px); /* Hoogte van het viewport minus de bovenste balk */
-            overflow-y: auto; /* Scrollbalk toevoegen indien nodig */
+            width: 250px;
+            height: calc(100vh - 50px);
+            overflow-y: auto;
             z-index: 0;
         }
-    #LogoRectangle{
-        position: absolute;
-        left: 0;
-        top: 0;
-        width:265px;
-        height:77px;
-        background-color: #4C7DDD;
-        border-bottom-right-radius: 10px;
-        z-index: 2;
-    }
 
-
+        #LogoRectangle {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 265px;
+            height: 77px;
+            background-color: #4C7DDD;
+            border-bottom-right-radius: 10px;
+            z-index: 2;
+        }
     </style>
 </head>
 <body>
     <div id="LogoRectangle"></div>
     <div class="header">
         <!-- Inhoud van de bovenste balk -->
-
     </div>
     <div class="sidebar">
         <div class="empty-space"></div>
@@ -248,14 +249,13 @@
                 </div>
                 <button class="favorite"></button>
             </div>
-            
         </div>
         <!-- Voeg hier meer game-rijen toe -->
     </div>
 
     <script>
         const favorites = document.querySelectorAll('.favorite');
-    favorites.forEach((favorite) => {
+        favorites.forEach((favorite) => {
             favorite.addEventListener('click', () => {
                 favorite.classList.toggle('active');
             });
