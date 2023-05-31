@@ -76,7 +76,7 @@
             border: 5px solid #000;
             background-color: #EBEBEB;
         }
-        .game-details {
+        .game-detailshover {
             position: absolute;
             bottom: 0;
             left: 0;
@@ -91,6 +91,21 @@
             transform: translateY(100%); /* Verberg de details buiten het zicht */
             transition: transform 0.3s ease;
         }
+
+        .game-details {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #c8e0ff;
+            color: black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
         .favorite {
             position: absolute;
             top: -8px;
@@ -122,6 +137,7 @@
                 transition: filter 0.3s ease; /* Voeg een overgang toe voor de helderheid */
             }
 
+
         .game:hover img {
                 filter: brightness(50%); /* Maak de afbeelding lichter bij het zweven met de cursor */
             }
@@ -129,7 +145,7 @@
             background-color: #767676;
         }
 
-        .game:hover .game-details {
+        .game:hover .game-detailshover {
             transform: translateY(0); /* Toon de details bij het zweven met de cursor */
         }
         .game-name,
