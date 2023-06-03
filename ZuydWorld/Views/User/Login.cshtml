@@ -9,12 +9,12 @@
                     <h2>Login</h2>
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
-                        <input name="gebruikersnaamofemail" value="@ViewBag.Value" required>
+                        <input name="gebruikersnaamofemail" required>
                         <label for="">Email of Gebruikersnaam</label>
                     </div>
                     <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" name="wachtwoord" value="@ViewBag.Values" required>
+                        <input type="password" name="wachtwoord" required>
                         <label for="">Password</label>
                     </div>
                     <div class="forget">
@@ -23,7 +23,7 @@
                     </div>
                     <button>Log in</button>
                     <div class="register">
-                        <p>Don't have a account? <a href="@Url.Action("registratie")"> Register</a></p>
+                        <p>Don't have a account? <a href="@Url.Action("Registration")"> Register</a></p>
                     </div>
                 </form>
             </div>
