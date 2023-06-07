@@ -4,16 +4,17 @@
 *@
 @{
     var SpelNaam = "*Spel Naam*";
-    List<Score> Scores;
+    List<Score> SortedScores;
 }
+
 @Html.Partial("~/Views/Shared/Navbar.cshtml");
-<div class="container-md">
+<div class="container" style="margin-left: 150px;">
     <h1 class="text-center">@SpelNaam</h1>
     <div class="row">
-        <div class="col">
-            <p>LEADERBOARD</p>
+        <div class="col-sm-2" style="">
+            <p><b>LEADERBOARD</b></p>
         </div>
-        <div class="col">
+        <div class="col-lg-8" style="">
             <div class="row">
                 <div class="col">
                     <p class="text-center"><b>n.2 player name</b></p>
@@ -30,10 +31,10 @@
                 <thead>
                     <tr>
                         <th>
-                            <p>Score</p>
+                            <p class="text-center">Score</p>
                         </th>
                         <th>
-                            <p>Speler</p>
+                            <p class="text-center">Speler</p>
                         </th>
                     </tr>
                 </thead>
@@ -43,10 +44,10 @@
                     {
                         <tr>
                             <td>
-                                <p>2000</p>
+                                <p class="text-center">2000</p>
                             </td>
                             <td>
-                                <p>Johan</p>
+                                <p class="text-center">Johan</p>
                             </td>
                         </tr>
                     }
@@ -70,7 +71,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="col">
+        <div class="col-sm-1">
             <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="Index">Back to game</a>
         </div>
     </div>
