@@ -7,43 +7,217 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ZuydWorld.styles.css" asp-append-version="true" />
+    <style>
+        .hidden-image {
+            display: none;
+        }
+        .level-bar {
+            outline: 2px solid black;
+            background-color: #f3f3f3;
+            height: 10px;
+            width: 62%;
+            margin-left: 290px;
+            margin-top: 30px;
+            border-radius: 50px;
+            position: relative;
+        }
+
+        .level-progress {
+            background: linear-gradient(to right, #ff0000, #ff7b00, #9eff04, #00ff3f, #00e7ff, #4602fc, #ff20d4);
+            height: 100%;
+            border-radius: 50px;
+            width: 60%; /* Standaard breedte */
+        }
+
+        .level-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: black;
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        .LogoUyd {
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            background-color: #4C7DDD;
+            padding: 10px 15px;
+            border-bottom-right-radius: 10px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+
+        }
+
+            .LogoUyd img {
+                height: 55px;
+                width: auto;
+            }
+
+            .LogoUyd .logo-text {
+                color: white;
+                font-weight: bold;
+                font-size: 30px;
+                margin-left: 10px;
+            }
+
+        .navbar {
+            background-color: #7cbcff;
+        }
+
+        .pijl-image {
+            height: 30px;
+            width: auto;
+            position: absolute;
+            top: 60px;
+            left: 20px;
+        }
+
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            margin-left: -75px;
+            margin-top: -10px;
+        }
+
+            .user-info .username {
+                color: white;
+                margin-right: auto;
+            }
+
+        /*            .user-info img {
+                        height: 20px;
+                        width: auto;
+                        margin-right: 5px;
+                    }*/
+
+        .navbar-icons {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: fixed;
+        }
+
+            .navbar-icons img {
+                height: 35px;
+                width: auto;
+                padding-left: 5px;
+            }
+
+                .navbar-icons img:hover {
+                    content: url('https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/ProfileHover.png?raw=true');
+                }
+
+                    .navbar-icons img:hover:nth-of-type(2) {
+                        content: url('https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/FavHover.png?raw=true');
+                    }
+
+                    .navbar-icons img:hover:nth-of-type(3) {
+                        content: url('https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/RecentHover.png?raw=true');
+                    }
+
+                    .navbar-icons img:hover:nth-of-type(4) {
+                        content: url('https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/BelHover.png?raw=true');
+                    }
+
+        .search-icon {
+            background-image: url('https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/zoek.png?raw=true');
+            background-repeat: no-repeat;
+            background-position: 5% center;
+            padding-left: 35px;
+            border-radius: 50px; /* Toegevoegde regel voor afgeronde hoeken */
+            width: 220px; /* Pas de gewenste breedte aan */
+        }
+
+        .search-box {
+            background-color: #6fa1ff;
+            padding: 9px;
+            padding-left: 20px;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-7cbcff border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ZuydWorld</a>
+                <img src="~/images/pijl.png" alt="pijl" class="pijl-image" />
+                <a class="LogoUyd" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/LogoWit.png?raw=true" alt="ZuydWorld Logo">
+                    <span class="logo-text">ZuydWorld</span>
+                </a>
+
+
+                <div class="level-bar">
+                    <div class="level-progress" style="width: 80%;"></div>
+                    <div class="level-text">X/100xp</div> <!-- Nieuwe div voor de tekst -->
+                </div>
+
+
+
+                <div class="user-info">
+                    <span class="username" style="color: white;" font="bold">Username</span>
+
+
+                </div>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+                    <div class="search-box">
+                        <form class="d-flex">
+                            <input class="form-control me-2 search-icon" type="search" placeholder="Search" aria-label="Search">
+                        </form>
+                    </div>
+                    <div class="navbar-icons">
+                        <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/Profiel.png?raw=true" alt="Profiel">
+                        <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/Favoriet.png?raw=true" alt="Favoriet">
+                        <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/Recent.png?raw=true" alt="Recent">
+                        <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/Bel.png?raw=true" alt="Bel">
+                    </div>
                 </div>
             </div>
         </nav>
+
     </header>
+    @*dit zijn hover images, ze staan hier zodat ze van te voren worden ingeladen*@
+    <img class="hidden-image" src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/ProfileHover.png?raw=true" alt="ProfielHover">
+    <img class="hidden-image" src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/FavHover.png?raw=true" alt="FavHover">
+    <img class="hidden-image" src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/RecentHover.png?raw=true" alt="RecentHover">
+    <img class="hidden-image" src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/BelHover.png?raw=true" alt="BelHover">
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
+    
 
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - ZuydWorld - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var xpPercentage = 100;
+            var levelProgress = document.querySelector(".level-progress");
+            levelProgress.style.width = xpPercentage + "%";
+        });
+    </script>
 </body>
 </html>
