@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,11 +31,12 @@
         .hidden-image {
             display: none;
         }
+
         .level-bar {
             outline: 2px solid black;
             background-color: #f3f3f3;
             height: 10px;
-            width: 61.75%;
+            width: 61.4%;
             margin-left: 290px;
             margin-top: 30px;
             border-radius: 50px;
@@ -58,15 +59,16 @@
             font-weight: bold;
             font-size: 11px;
         }
+
         .levelup-text {
             position: absolute;
             top: -300%;
             right: 93%;
-            color: White;
+            color: white;
             font-weight: bold;
         }
 
-        .LogoUyd {
+        .LogoZuyd {
             z-index: 3;
             display: flex;
             align-items: center;
@@ -76,15 +78,14 @@
             position: absolute;
             left: 0px;
             top: 0px;
-
         }
 
-            .LogoUyd img {
+            .LogoZuyd img {
                 height: 55px;
                 width: auto;
             }
 
-            .LogoUyd .logo-text {
+            .LogoZuyd .logo-text {
                 color: white;
                 font-weight: bold;
                 font-size: 30px;
@@ -95,8 +96,21 @@
             background-color: #7cbcff;
         }
 
+        .navbar-icons img:hover {
+            content: url('https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/ProfileHover.png?raw=true');
+        }
 
+            .navbar-icons img:hover:nth-of-type(2) {
+                content: url('https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/FavHover.png?raw=true');
+            }
 
+            .navbar-icons img:hover:nth-of-type(3) {
+                content: url('https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/RecentHover.png?raw=true');
+            }
+
+            .navbar-icons img:hover:nth-of-type(4) {
+                content: url('https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/BelHover.png?raw=true');
+            }
 
         .user-info {
             display: flex;
@@ -110,12 +124,6 @@
                 margin-right: auto;
             }
 
-        /*            .user-info img {
-                        height: 20px;
-                        width: auto;
-                        margin-right: 5px;
-                    }*/
-
         .navbar-icons {
             display: flex;
             align-items: center;
@@ -128,22 +136,6 @@
                 width: auto;
                 padding-left: 7px;
             }
-
-                .navbar-icons img:hover {
-                    content: url('https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/ProfileHover.png?raw=true');
-                }
-
-                    .navbar-icons img:hover:nth-of-type(2) {
-                        content: url('https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/FavHover.png?raw=true');
-                    }
-
-                    .navbar-icons img:hover:nth-of-type(3) {
-                        content: url('https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/RecentHover.png?raw=true');
-                    }
-
-                    .navbar-icons img:hover:nth-of-type(4) {
-                        content: url('https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/BelHover.png?raw=true');
-                    }
 
         .search-icon {
             background-image: url('https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/zoek.png?raw=true');
@@ -171,26 +163,18 @@
 
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-7cbcff border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="LogoUyd" asp-area="" asp-controller="Home" asp-action="Index">
+                <a class="LogoZuyd" asp-area="" asp-controller="Home" asp-action="Index">
                     <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/LogoWit.png?raw=true" alt="ZuydWorld Logo">
                     <span class="logo-text">ZuydWorld</span>
                 </a>
-                
-
-
                 <div class="level-bar">
                     <img class="arrow-image" src="https://github.com/mhjdemmers/ZuydWorld/blob/Navbar/ZuydWorld/Resources/Images/Pijl.png?raw=true" alt="Pijl">
-               <div class="levelup-text">Level X</div>
-                    <div class="level-progress" style="width: 80%;"></div>
+                    <div class="levelup-text">Level X</div>
+                    <div class="level-progress"></div>
                     <div class="level-text">X/100xp</div> <!-- Nieuwe div voor de tekst -->
                 </div>
-
-
-
                 <div class="user-info">
-                    <span class="username" style="color: white;" font="bold">Username</span>
-
-
+                    <span class="username" style="color: white; font-weight: bold;">Username</span>
                 </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -215,7 +199,7 @@
         </nav>
 
     </header>
-    @*dit zijn hover images, ze staan hier zodat ze van te voren worden ingeladen*@
+    <!-- dit zijn hover images, ze staan hier zodat ze van tevoren worden ingeladen -->
     <img class="hidden-image" src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/ProfileHover.png?raw=true" alt="ProfielHover">
     <img class="hidden-image" src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/FavHover.png?raw=true" alt="FavHover">
     <img class="hidden-image" src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/RecentHover.png?raw=true" alt="RecentHover">
@@ -225,7 +209,7 @@
             @RenderBody()
         </main>
     </div>
-    
+
 
     <footer class="border-top footer text-muted">
         <div class="container">
