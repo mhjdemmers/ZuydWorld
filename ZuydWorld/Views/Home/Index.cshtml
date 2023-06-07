@@ -7,9 +7,9 @@
         .arrow {
             position: fixed;
             top: calc(50% - 20px);
-            width: 40px;
-            height: 40px;
-            background-color: rgba(0, 0, 0, 0.5);
+            width: 60px;
+            height: 60px;
+            background-color: transparent;
             color: white;
             font-size: 30px;
             display: flex;
@@ -25,6 +25,18 @@
 
         .arrow-right {
             right: 10px;
+        }
+
+        .arrow-left:hover {
+            content: url(https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/ZuydWorld/Recources/Images/PijlLHover.png?raw=true);
+        }
+
+        .arrow-right:hover {
+            content: url(https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/ZuydWorld/Recources/Images/PijlRHover.png?raw=true);
+        }
+
+        .arrowhover {
+            display: none;
         }
 
         body {
@@ -310,11 +322,13 @@
         <div class="category">Retro</div>
         <!-- Voeg hier meer categorieën toe -->
     </div>
-    <div class="arrow arrow-left">&larr;</div>
-    <div class="arrow arrow-right">&rarr;</div>
+    <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/ZuydWorld/Recources/Images/PijlL.png?raw=true" alt="Linkerpijl" class="arrow arrow-left">
+    <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/ZuydWorld/Recources/Images/PijlR.png?raw=true" alt="Rechterpijl" class="arrow arrow-right">
+    <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/ZuydWorld/Recources/Images/PijlLHover.png?raw=true" class="arrowhover" />
+    <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/ZuydWorld/Recources/Images/PijlRHover.png?raw=true" class="arrowhover" />
 
     <div class="content">
-        <div class="grid">
+        <div class="grid">  
             <div class="grid-item">
                 <span class="favorite"><i class="far fa-star"></i></span>
                 <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/checkers.jpg?raw=true" alt="Afbeelding 1">
