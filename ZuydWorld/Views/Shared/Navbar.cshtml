@@ -1,0 +1,60 @@
+﻿<style>
+        .sidebar {
+        background-color: #7cbcff;
+        color: #101010;
+        padding: 10px;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 250px;
+        height: calc(100vh - 50px);
+        overflow-y: auto;
+        z-index: 0;
+    }
+
+    .category {
+        background-color: white;
+        margin-bottom: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 10px;
+        border-radius: 10px;
+    }
+
+        .category:hover,
+        .category.home:hover {
+            background-color: #6E86FF;
+            color: #fff;
+        }
+
+        .category.home {
+            background-color: #6266a5;
+            color: white;
+            padding-top: 10px;
+        }
+</style>
+
+<div class="sidebar">
+    <div class="empty-space"></div>
+    <div class="category home">Home</div>
+    <div class="category">Random Game</div>
+    <div class="category">New Games</div>
+    <div class="category">Action</div>
+    <div class="category">Adventure</div>
+    <div class="category">Puzzle</div>
+    <div class="category">Sport</div>
+    <div class="category">Multiplayer</div>
+    <div class="category">Trivia</div>
+    <div class="category">Platformer</div>
+    <div class="category">Board games</div>
+    <div class="category">3D</div>
+    <div class="category">Retro</div>
+    <!-- Voeg hier meer categorieën toe -->
+</div>
