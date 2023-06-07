@@ -31,23 +31,29 @@
                 <thead>
                     <tr>
                         <th>
-                            <p class="text-center">Score</p>
+                            <p class="text-center">Plaats</p>
                         </th>
                         <th>
                             <p class="text-center">Speler</p>
+                        </th>
+                        <th>
+                            <p class="text-center">Score</p>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    @for (int i = 0; i < 10; i++)
+                    @for (int i = 4; i <= 15; i++)
                     {
                         <tr>
                             <td>
-                                <p class="text-center">2000</p>
+                                <p class="text-center">@i</p>
                             </td>
                             <td>
                                 <p class="text-center">Johan</p>
+                            </td>
+                            <td>
+                                <p class="text-center">@(MathF.Ceiling((2500 / i)).ToString())</p>
                             </td>
                         </tr>
                     }
