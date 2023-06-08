@@ -26,9 +26,9 @@ jobs:
         run: |
           docker tag zuydworld-image:latest ${{ env.DOCKER_USERNAME }}/zuydworld-image:latest
           docker push ${{ env.DOCKER_USERNAME }}/zuydworld-image:latest
-      - name: Build Database Docker image
-        run: docker build . --file Database/Dockerfile --tag database-image:latest
-      - name: Push Database Docker image
-        run: |
-          docker tag database-image:latest ${{ env.DOCKER_USERNAME }}/database-image:latest
-          docker push ${{ env.DOCKER_USERNAME }}/database-image:latest
+#      - name: Build Database Docker image
+#        run: docker build . --file Database/Dockerfile --tag database-image:latest
+#      - name: Push Database Docker image
+#        run: |
+#          docker tag database-image:latest ${{ env.DOCKER_USERNAME }}/database-image:latest
+#          docker push ${{ env.DOCKER_USERNAME }}/database-image:latest
