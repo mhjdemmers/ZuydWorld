@@ -81,103 +81,6 @@
             height: 20px;
         }
 
-/*        .game {
-            width: calc(25% - 20px);
-            margin-bottom: 20px;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            border-radius: 10px;
-            border: 5px solid #000;
-            background-color: #EBEBEB;
-        }
-
-        .game-detailshover,
-        .game-details {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 14px;
-            padding: 5px 10px;
-        }
-
-        .game-detailshover {
-            background-color: #c8e0ff;
-            color: black;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .game-details {
-            background-color: #a3a3a3;
-            color: White;
-            font-weight: bold;
-        }
-
-        .favorite {
-            position: absolute;
-            top: -8px;
-            right: 25px;
-            width: 20px;
-            height: 20px;
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-        }
-
-            .favorite:before {
-                content: "\2606";
-                color: #fff;
-                font-size: 40px;
-            }
-
-            .favorite:hover:before {
-                color: yellow;
-            }
-
-            .favorite.active:before {
-                content: "\2605";
-                color: yellow;
-            }
-
-        .game img {
-            width: 100%;
-            height: 81%;
-            object-fit: cover;
-        }
-
-        .game:hover img {
-            filter: brightness(50%);
-        }
-
-        .game:hover {
-            background-color: #767676;
-        }
-
-            .game:hover .game-detailshover {
-                transform: translateY(0);
-            }
-
-        .game-name,
-        .like-percentage {
-            margin: 0;
-        }
-
-        .game-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .like-percentage {
-            background-color: #a1bbff;
-            padding: 5px 10px;
-        }*/
-
         .grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -294,20 +197,6 @@
             opacity: 1;
         }
 
-/*        .grid-item:hover .favoritewhite {
-            opacity: 1;
-        }
-
-        .favoritewhite:hover {
-            color: #ffe03a;
-        }
-
-        .favoritewhite.clicked {
-            color: #ffd700;
-            opacity: 1;
-        }*/
-
-
 
         .sidebar {
             background-color: #7cbcff;
@@ -322,20 +211,9 @@
             z-index: 0;
         }
 
-        #LogoRectangle {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 265px;
-            height: 77px;
-            background-color: #4C7DDD;
-            border-bottom-right-radius: 10px;
-            z-index: 2;
-        }
     </style>
 </head>
 <body>
-    <div id="LogoRectangle"></div>
     <div class="header">
         <!-- Inhoud van de bovenste balk -->
     </div>
@@ -460,43 +338,7 @@
                 </div>
             </div>
         </div>
-@*        <div class="game-row">
-            <div class="game">
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/checkers.jpg?raw=true">
-                <div class="game-details">
-                    <span class="game-name">Checkers</span>
-                    <span class="like-percentage">85% likes</span>
-                </div>
-                <button class="favorite"></button>
-            </div>
-            <div class="game">
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/ttt.png?raw=true">
-                <div class="game-details">
-                    <span class="game-name">Tic Tac Toe</span>
-                    <span class="like-percentage">85% likes</span>
-                </div>
-                <button class="favorite"></button>
-            </div>
-            <div class="game">
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/pacman.jpg?raw=true">
-                <div class="game-details">
-                    <span class="game-name">Pac Man</span>
-                    <span class="like-percentage">85% likes</span>
-                </div>
-                <button class="favorite"></button>
-            </div>
-            <div class="game">
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/FrontEnd/tetris.jpg?raw=true">
-                <div class="game-details">
-                    <span class="game-name">Tetris</span>
-                    <span class="like-percentage">85% likes</span>
-                </div>
-                <button class="favorite"></button>
-            </div>*@
-        </div>
-        <!-- Voeg hier meer game-rijen toe -->
     </div>
-
     <script>
         const favoriteIcons = document.querySelectorAll('.favorite, .favoritewhite');
         favoriteIcons.forEach(icon => {
