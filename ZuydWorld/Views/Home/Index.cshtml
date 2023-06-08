@@ -189,6 +189,7 @@
             position: relative;
             border-radius: 15px;
             border: 7px solid #7A7979;
+            background-color: #EBEBEB;
         }
 
             .grid-item img {
@@ -251,6 +252,7 @@
             transition: ease-out 0s;
         }
 
+        /*gebruik deze versie van de ster als de image van het spel licht gekleurd is*/
         .favorite {
             position: absolute;
             top: 0;
@@ -262,11 +264,23 @@
             z-index: 1;
         }
 
-        .grid-item:hover .favorite {
+        /*gebruik deze versie van de ster als de image van het spel donker gekleurd is*/
+        .favoritewhite {
+            position: absolute;
+            top: 0;
+            right: 5px;
+            color: #fff;
+            cursor: pointer;
+            opacity: 0;
+            font-size: 30px;
+            z-index: 1;
+        }
+
+        .grid-item:hover .favorite, .grid-item:hover .favoritewhite {
             opacity: 1;
         }
 
-            .favorite:hover {
+            .favorite:hover, .favoritewhite:hover {
             color: #ffe03a;
             }
 
@@ -274,6 +288,26 @@
                 color: #ffd700;
                 opacity: 1;
             }
+
+        .favoritewhite.clicked {
+            color: #ffd700;
+            opacity: 1;
+        }
+
+/*        .grid-item:hover .favoritewhite {
+            opacity: 1;
+        }
+
+        .favoritewhite:hover {
+            color: #ffe03a;
+        }
+
+        .favoritewhite.clicked {
+            color: #ffd700;
+            opacity: 1;
+        }*/
+
+
 
         .sidebar {
             background-color: #7cbcff;
@@ -334,95 +368,95 @@
                 <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/checkers.jpg?raw=true" alt="Afbeelding 1">
                 <div class="caption">
                     Checkers
-                    <span class="like-percentage">Like zooi</span>
+                    <span class="like-percentage">XX% <i class="far fa-thumbs-up" aria-hidden="true"></i></span>
                 </div>
             </div>
             <div class="grid-item">
                 <span class="favorite"><i class="far fa-star"></i></span>
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/checkers.jpg?raw=true" alt="Afbeelding 2">
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/ttt.png?raw=true" alt="Afbeelding 2">
                 <div class="caption">
-                    Filler
-                    <span>Like zooi</span>
+                    TicTacToe
+                    <span class="like-percentage">XX% <i class="far fa-thumbs-up" aria-hidden="true"></i></span>
+                </div>
+            </div>
+            <div class="grid-item">
+                <span class="favoritewhite"><i class="far fa-star"></i></span>
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/pacman.jpg?raw=true" alt="Afbeelding 3">
+                <div class="caption">
+                    Pacman
+                    <span class="like-percentage">XX% <i class="far fa-thumbs-up" aria-hidden="true"></i></span>
+                </div>
+            </div>
+            <div class="grid-item">
+                <span class="favoritewhite"><i class="far fa-star"></i></span>
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/tetris.jpg?raw=true" alt="Afbeelding 4">
+                <div class="caption">
+                    Tetris
+                    <span class="like-percentage">XX% <i class="far fa-thumbs-up" aria-hidden="true"></i></span>
+                </div>
+            </div>
+            <div class="grid-item">
+                <span class="favoritewhite"><i class="far fa-star"></i></span>
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/pong.jpg?raw=true" alt="Afbeelding 5">
+                <div class="caption">
+                    Pong
+                    <span class="like-percentage">XX% <i class="far fa-thumbs-up" aria-hidden="true"></i></span>
                 </div>
             </div>
             <div class="grid-item">
                 <span class="favorite"><i class="far fa-star"></i></span>
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/checkers.jpg?raw=true" alt="Afbeelding 3">
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/connect4.png?raw=true" alt="Afbeelding 6">
                 <div class="caption">
-                    Filler
-                    <span>Like zooi</span>
+                    Connect4
+                    <span class="like-percentage">XX% <i class="far fa-thumbs-up" aria-hidden="true"></i></span>
                 </div>
             </div>
             <div class="grid-item">
                 <span class="favorite"><i class="far fa-star"></i></span>
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/checkers.jpg?raw=true" alt="Afbeelding 4">
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/blakcjakcx.png?raw=true" alt="Afbeelding 7">
                 <div class="caption">
-                    Filler
-                    <span>Like zooi</span>
+                    Blackjack
+                    <span class="like-percentage">XX% <i class="far fa-thumbs-up" aria-hidden="true"></i></span>
                 </div>
             </div>
             <div class="grid-item">
                 <span class="favorite"><i class="far fa-star"></i></span>
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/checkers.jpg?raw=true" alt="Afbeelding 5">
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/scrabble.jpeg?raw=true" alt="Afbeelding 8">
                 <div class="caption">
-                    Filler
-                    <span>Like zooi</span>
+                    Scrabble
+                    <span class="like-percentage">XX% <i class="far fa-thumbs-up" aria-hidden="true"></i></span>
                 </div>
             </div>
             <div class="grid-item">
                 <span class="favorite"><i class="far fa-star"></i></span>
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/checkers.jpg?raw=true" alt="Afbeelding 6">
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/btleship.jpg?raw=true" alt="Afbeelding 9">
                 <div class="caption">
-                    Filler
-                    <span>Like zooi</span>
+                    Battleship
+                    <span class="like-percentage">XX% <i class="far fa-thumbs-up" aria-hidden="true"></i></span>
                 </div>
             </div>
             <div class="grid-item">
                 <span class="favorite"><i class="far fa-star"></i></span>
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/checkers.jpg?raw=true" alt="Afbeelding 7">
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/minesweeper.png?raw=true" alt="Afbeelding 10">
                 <div class="caption">
-                    Filler
-                    <span>Like zooi</span>
+                    Minesweeper
+                    <span class="like-percentage">XX% <i class="far fa-thumbs-up" aria-hidden="true"></i></span>
+                </div>
+            </div>
+            <div class="grid-item">
+                <span class="favoritewhite"><i class="far fa-star"></i></span>
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/Qbert.png?raw=true" alt="Afbeelding 11">
+                <div class="caption">
+                    Qbert
+                    <span class="like-percentage">XX% <i class="far fa-thumbs-up" aria-hidden="true"></i></span>
                 </div>
             </div>
             <div class="grid-item">
                 <span class="favorite"><i class="far fa-star"></i></span>
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/checkers.jpg?raw=true" alt="Afbeelding 8">
+                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/spaceinvaders.png?raw=true" alt="Afbeelding 12">
                 <div class="caption">
-                    Filler
-                    <span>Like zooi</span>
-                </div>
-            </div>
-            <div class="grid-item">
-                <span class="favorite"><i class="far fa-star"></i></span>
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/checkers.jpg?raw=true" alt="Afbeelding 9">
-                <div class="caption">
-                    Filler
-                    <span>Like zooi</span>
-                </div>
-            </div>
-            <div class="grid-item">
-                <span class="favorite"><i class="far fa-star"></i></span>
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/checkers.jpg?raw=true" alt="Afbeelding 10">
-                <div class="caption">
-                    Filler
-                    <span>Like zooi</span>
-                </div>
-            </div>
-            <div class="grid-item">
-                <span class="favorite"><i class="far fa-star"></i></span>
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/checkers.jpg?raw=true" alt="Afbeelding 11">
-                <div class="caption">
-                    Filler
-                    <span>Like zooi</span>
-                </div>
-            </div>
-            <div class="grid-item">
-                <span class="favorite"><i class="far fa-star"></i></span>
-                <img src="https://github.com/mhjdemmers/ZuydWorld/blob/Hoofdpagina/checkers.jpg?raw=true" alt="Afbeelding 12">
-                <div class="caption">
-                    Filler
-                    <span>Like zooi</span>
+                    SpaceInvaders
+                    <span class="like-percentage">XX% <i class="far fa-thumbs-up" aria-hidden="true"></i></span>
                 </div>
             </div>
         </div>
@@ -464,17 +498,14 @@
     </div>
 
     <script>
-        const favorites = document.querySelectorAll('.favorite');
-
-        favorites.forEach((favorite) => {
-            favorite.addEventListener('click', () => {
-                if (favorite.classList.contains('clicked')) {
-                    favorite.classList.remove('clicked');
-                } else {
-                    favorite.classList.add('clicked');
-                }
+        const favoriteIcons = document.querySelectorAll('.favorite, .favoritewhite');
+        favoriteIcons.forEach(icon => {
+            icon.addEventListener('click', function () {
+                this.classList.toggle('clicked');
             });
         });
+
+
     </script>
 </body>
 </html>
