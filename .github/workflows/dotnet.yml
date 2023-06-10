@@ -30,6 +30,9 @@ jobs:
       - name: Build
         run: dotnet build --no-restore
 
+      - name: Publish
+        run: dotnet publish ZuydWorld/ZuydWorld.csproj -c Release -o website
+
       - name: Setup .NET v 3.1.0
         uses: actions/setup-dotnet@v1
         with:
@@ -38,8 +41,8 @@ jobs:
       - name: Convert sarif for uploading to GitHub
         uses: security-code-scan/security-code-scan-results-action@v1
 
+      - name: Upload sarif
+        uses: github/codeql-action/upload-sarif@v1
+
       - name: Test
         run: dotnet test --no-build --verbosity normal
-
-      - name: Publish
-        run: dotnet publish ZuydWorld/ZuydWorld.csproj -c Release -o website
