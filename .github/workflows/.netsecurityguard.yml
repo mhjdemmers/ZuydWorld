@@ -18,7 +18,7 @@ jobs:
       - name: Install .NET Core SDK
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '6.0.x' # Kies de gewenste .NET Core-versie
+          dotnet-version: '6.0' # Kies de gewenste .NET Core-versie
 
       - name: Build and Test
         run: |
