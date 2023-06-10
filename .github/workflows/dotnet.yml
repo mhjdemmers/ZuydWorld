@@ -44,7 +44,7 @@ jobs:
       - name: Upload sarif
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: /scanlogs
+          sarif_file: scanlogs/
 
       - name: Test
         run: dotnet test --no-build --verbosity normal
