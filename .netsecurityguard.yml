@@ -1,1 +1,31 @@
+name: OWASP .NET Security Guard
+on:
+  push:
+    branches:
+      - owasp--test
+  pull_request:
+    branches:
+      - owasp--test
 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install .NET Core SDK
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '6.0.x' # Kies de gewenste .NET Core-versie
+
+      - name: Build and Test
+        run: |
+          dotnet build
+          dotnet test
+
+      - name: Run OWASP .NET Security Guard
+        run: |
+          dotnet tool install dotnet-security-guard --tool-path tools
+          dotnet tools/dotnet-security-guard/SecurityGuard.dll -p .
