@@ -1,1 +1,24 @@
+name: CodeQL
 
+on:
+  push:
+    branches:
+      - owasp--test
+  pull_request:
+    branches:
+      - owasp--test
+
+jobs:
+  analyze:
+    name: Analyze code
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v1
+
+      - name: Build CodeQL database
+        uses: github/codeql-action/analyze@v1
