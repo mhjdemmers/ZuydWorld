@@ -1,31 +1,24 @@
 name: OWASP .NET Security Guard
+
 on:
   push:
-    branches:
-      - owasp--test
-  pull_request:
-    branches:
-      - owasp--test
 
 jobs:
-  build:
+  SCS:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      - name: Install .NET Core SDK
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: '6.0.x' # Kies de gewenste .NET Core-versie
+      - name: Set up projects
+        uses: security-code-scan/security-code-scan-add-action@v1.2
 
-      - name: Build and Test
+      - name: Build
         run: |
+          dotnet restore
           dotnet build
-          dotnet test
 
-      - name: Run OWASP .NET Security Guard
-        run: |
-          dotnet tool install dotnet-security-guard --tool-path tools
-          dotnet tools/dotnet-security-guard/SecurityGuard.dll -p .
+      - name: Convert sarif for uploading to GitHub
+        uses: security-code-scan/security-code-scan-results-action@v1
+
+      - name: Upload sarif
+        uses: github/codeql-action/upload-sarif@v1
