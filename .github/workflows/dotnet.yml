@@ -30,6 +30,11 @@ jobs:
       - name: Build
         run: dotnet build --no-restore
 
+      - name: Setup .NET v 3.1.0
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.x
+
       - name: Convert sarif for uploading to GitHub
         uses: security-code-scan/security-code-scan-results-action@v1
 
