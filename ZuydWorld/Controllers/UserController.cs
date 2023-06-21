@@ -17,6 +17,11 @@ namespace ZuydWorld.Controllers
             return View();
         }
 
+        public IActionResult Friends()
+        {
+            return View();
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
