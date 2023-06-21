@@ -16,3 +16,26 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.labelprofiel {
+    display: block;
+    margin-top: 10px;
+}
+
+.inputprofiel {
+    display: block;
+}
+
+.form-box1 {
+    position: relative;
+    width: 700px;
+    height: 200px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid black;
+}
