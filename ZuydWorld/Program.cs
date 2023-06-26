@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using ZuydWorld.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<ZuydWorldContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ZuydWorldContext") ?? throw new InvalidOperationException("Connection string 'ZuydWorldContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
