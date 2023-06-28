@@ -15,5 +15,6 @@ namespace ZuydWorld.Data
         }
 
         public DbSet<ZuydWorld.Models.Game> Game { get; set; } = default!;
+        public DbSet<ZuydWorld.Models.User> User { get; set; } = default!;
     }
 }
