@@ -14,6 +14,22 @@ namespace ZuydWorld.Data
         {
         }
 
-        public DbSet<ZuydWorld.Models.Game> Game { get; set; } = default!;
+        public DbSet<Game> Game { get; set; } = default!;
+        public DbSet<Category> Category { get; set; } = default!;
+        public DbSet<Comment> Comment { get; set; } = default!;
+        public DbSet<Publisher> Publisher { get; set; } = default!;
+        public DbSet<Score> Score { get; set; } = default!;
+        public DbSet<User> Userss { get; set; } = default!;
+
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+           // modelBuilder.Entity<User>()
+            //.HasMany(u => u.Likes)
+            //.WithMany(g => g.UsersWhoLike);
+
+            //modelBuilder.Entity<User>()
+                //.HasMany(u => u.Favorites)
+                //.WithMany(g => g.UsersWhoFavorite);
+        //}
     }
 }
