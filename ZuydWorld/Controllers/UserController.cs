@@ -21,19 +21,19 @@ namespace ZuydWorld.Controllers
         // GET: User
         public async Task<IActionResult> Index()
         {
-            return _context.User != null ?
-                        View(await _context.User.ToListAsync()) :
+            return _context.Userss != null ?
+                        View(await _context.Userss.ToListAsync()) :
                         Problem("Entity set 'ZuydWorldContext.User'  is null.");
         }
         // GET: User/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.User == null)
+            if (id == null || _context.Userss == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.User
+            var user = await _context.Userss
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (user == null)
             {
@@ -64,12 +64,12 @@ namespace ZuydWorld.Controllers
         // GET: User/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.User == null)
+            if (id == null || _context.Userss == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.User.FindAsync(id);
+            var user = await _context.Userss.FindAsync(id);
             if (user == null)
             {
                 return NotFound();
@@ -113,12 +113,12 @@ namespace ZuydWorld.Controllers
         // GET: User/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.User == null)
+            if (id == null || _context.Userss == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.User
+            var user = await _context.Userss
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (user == null)
             {
@@ -138,14 +138,14 @@ namespace ZuydWorld.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.User == null)
+            if (_context.Userss == null)
             {
                 return Problem("Entity set 'ZuydWorldContext.Game'  is null.");
             }
-            var user = await _context.User.FindAsync(id);
+            var user = await _context.Userss.FindAsync(id);
             if (user != null)
             {
-                _context.User.Remove(user);
+                _context.Userss.Remove(user);
             }
 
             await _context.SaveChangesAsync();
@@ -154,7 +154,7 @@ namespace ZuydWorld.Controllers
 
         private bool UserExists(int id)
         {
-            return (_context.User?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Userss?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
