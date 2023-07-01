@@ -156,6 +156,10 @@ namespace ZuydWorld.Controllers
         {
             return (_context.Userss?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+        public IActionResult Login()
+        {
+            return View();
+        }
         public IActionResult Profile()
         {
             return View();
