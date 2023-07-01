@@ -90,6 +90,9 @@ namespace ZuydWorld.Migrations
                     b.Property<int?>("UserId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("UserId1")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
@@ -97,6 +100,8 @@ namespace ZuydWorld.Migrations
                     b.HasIndex("PublisherId");
 
                     b.HasIndex("UserId");
+
+                    b.HasIndex("UserId1");
 
                     b.ToTable("Game");
                 });
@@ -215,6 +220,10 @@ namespace ZuydWorld.Migrations
                         .IsRequired();
 
                     b.HasOne("ZuydWorld.Models.User", null)
+                        .WithMany("Favorites")
+                        .HasForeignKey("UserId");
+
+                    b.HasOne("ZuydWorld.Models.User", null)
                         .WithMany("Likes")
                         .HasForeignKey("UserId");
 
@@ -249,6 +258,8 @@ namespace ZuydWorld.Migrations
 
             modelBuilder.Entity("ZuydWorld.Models.User", b =>
                 {
+                    b.Navigation("Favorites");
+
                     b.Navigation("Likes");
                 });
 #pragma warning restore 612, 618
