@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using ZuydWorld.Data;
 using ZuydWorld.Models;
 using System.Xml.Linq;
+using Microsoft.AspNetCore.Identity;
 
 namespace ZuydWorld.Controllers
 {
@@ -132,9 +133,24 @@ namespace ZuydWorld.Controllers
             return View(user);
         }
 
+        [HttpGet]
         public IActionResult Registration()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Registration(string Username, string Email, string Password, User user)
+        {
+            user.Email = Email;
+            user.Password = Password;
+            user.Username = Username;
+            user.RegistrationDate = DateTime.Now;
+            user.Moderator = false;
+            user.Banned = false;
+            LoggedInUser.user = user;
+            _context.Add(user);
+            _context.SaveChanges();
+            return Redirect("Profile");
         }
 
         // POST: User/Delete/5
