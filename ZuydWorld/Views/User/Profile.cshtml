@@ -1,0 +1,176 @@
+﻿<style>
+    .sidebar {
+        background-color: #7cbcff;
+        color: #101010;
+        padding: 10px;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 250px;
+        height: calc(100vh - 50px);
+        overflow-x: hidden;
+        overflow-y: auto;
+        z-index: 0;
+    }
+
+    .category {
+        background-color: white;
+        margin-bottom: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 10px;
+        border-radius: 10px;
+    }
+
+    .delete {
+        background-color: red;
+        margin-bottom: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 10px;
+        border-radius: 10px;
+        position: absolute;
+        bottom: 30px;
+        width: 80%;
+    }
+
+    .category:hover,
+    .category.home:hover {
+        background-color: #6E86FF;
+        color: #fff;
+    }
+
+    .category.home {
+        background-color: #6266a5;
+        color: white;
+        padding-top: 10px;
+    }
+
+    .circle {
+        margin-left: 200px;
+        
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+        .circle img {
+            width: 100%;
+            height: 100%;
+        }
+
+    .container {
+        position: relative;
+        top: -20px;
+        
+        align-items: center;
+    }
+</style>
+
+@*
+    foto
+*@
+<div class="container">
+    <div class="circle">
+        <img src="/background6.jpg" alt="Your image">
+
+    </div>
+    <button style="position: absolute; border:none; height:40px;
+        top: 50%;
+        right: 600px;
+        transform: translateY(-50%); width:200px;  background-color:#7cbcff; color:black; margin-left:20px; border-radius:10px">
+        Change profile picture
+    </button>
+
+</div>
+
+@*
+    links bar
+*@
+<div class="sidebar">
+    <div class="empty-space"></div>
+    <a asp-action="Index" asp-controller="Home" style="color:black; text-decoration:none;"><div class="category">Home</div></a>
+    <a href="Login" style="color:black; text-decoration:none;"><div class="category">Login</div></a>
+    <a href="Profile" style="color:black; text-decoration:none;"><div class="category home">Profile</div></a>
+    <a href="Friends" style="color:black; text-decoration:none;"><div class="category">Friends</div></a>
+    <a href="" style="color:black; text-decoration:none;"><div class="category">Settings</div></a>
+    <a href="" style="color:black; text-decoration:none;"><div class="category">Statistics</div></a>
+    <a id="showPopup" style="color:black; text-decoration:none;"><div class="delete">Delete Account</div></a>
+
+</div>
+
+@*
+    pagina
+*@
+<form method="post">
+<div style="float:left; margin-left:200px">
+    <label class="labelprofiel" style=" ">Name</label>
+    <input class="inputprofiel" style="" name="Name" value="@ViewBag.Name" />
+    <label class="labelprofiel" style=" ">Email</label>
+    <input class="inputprofiel" style="" name="Email" value="@ViewBag.Email"/>
+    <label class="labelprofiel" style="">Phone Number</label>
+    <input class="inputprofiel" style=""  value="@ViewBag.PhoneNumber"/>
+
+</div>
+<div style="float:right; margin-right:400px">
+    <label class="labelprofiel" style="margin-top: 10px;">Username</label>
+    <input class="inputprofiel" style="" name="Username" value="@ViewBag.Username" />
+    <label class="labelprofiel" style="margin-top: 10px;">Password</label>
+    <input class="inputprofiel" style="" name="Password" value="@ViewBag.Password" />
+    <input type="checkbox" name="cool" id="dark-mode-toggle" onchange="toggleDarkMode()" checked="@ViewBag.v" />
+    <label for="dark-mode-toggle">Dark Mode</label>
+
+
+</div>
+
+<button style=" height:35px; border:none; background-color:aquamarine; margin-top:20px; margin-left:200px; margin-right:210px; width:700px; border-radius:10px">Save Profile</button>
+</form>
+
+
+@*
+    code popup bij delete account
+*@
+<div id="overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5);"></div>
+
+<div class="form-box1" id="popup" style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);">
+    <h2 style=" margin-left:2px; color:black">Are you sure you want to delete your account?</h2>
+    <h4 style=" text-align:center">All of your data and information will be deleted</h4>
+    <form asp-action="Profile" method="post">
+        <button style="background-color:#6E86FF; float:left; width:200px; margin-bottom:10px; margin-top:50px; margin-left:10px">Cancel</button>
+    </form>
+
+    <form method="post">
+    <button style="background-color:red; float:right; width:200px; margin-bottom:10px; margin-top:50px; margin-right:10px;">Delete</button>
+    </form>
+</div>
+
+<script>
+    var popup = document.getElementById("popup");
+    var overlay = document.getElementById("overlay");
+    var showPopupButton = document.getElementById("showPopup");
+
+    showPopupButton.addEventListener("click", function () {
+        popup.style.display = "block";
+        overlay.style.display = "block";
+    });
+
+    overlay.addEventListener("click", function () {
+        popup.style.display = "none";
+        overlay.style.display = "none";
+    });
+</script>

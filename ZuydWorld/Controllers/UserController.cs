@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ZuydWorld.Data;
 using ZuydWorld.Models;
+using System.Xml.Linq;
+using Microsoft.AspNetCore.Identity;
 
 namespace ZuydWorld.Controllers
 {
@@ -128,9 +133,24 @@ namespace ZuydWorld.Controllers
             return View(user);
         }
 
+        [HttpGet]
         public IActionResult Registration()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Registration(string Username, string Email, string Password, User user)
+        {
+            user.Email = Email;
+            user.Password = Password;
+            user.Username = Username;
+            user.RegistrationDate = DateTime.Now;
+            user.Moderator = false;
+            user.Banned = false;
+            LoggedInUser.user = user;
+            _context.Add(user);
+            _context.SaveChanges();
+            return Redirect("Profile");
         }
 
         // POST: User/Delete/5
@@ -156,9 +176,77 @@ namespace ZuydWorld.Controllers
         {
             return (_context.Userss?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
+        [HttpGet]
         public IActionResult Login()
         {
+                return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(string gebruikersnaamofemail, string wachtwoord, User user, bool myCheckbox)
+        {
+            foreach (var User in _context.Userss)
+            {
+                if (User.Email == gebruikersnaamofemail ^ user.Username == gebruikersnaamofemail && User.Password == wachtwoord)
+                {
+                    user.Email = gebruikersnaamofemail;
+                    user.Password = wachtwoord;
+                    user.Id = User.Id;
+                    user.Username = User.Username;
+                    user.Moderator = User.Moderator;
+                    user.Banned = user.Banned;
+                    user.Likes = user.Likes;
+                    user.RegistrationDate = user.RegistrationDate;
+                    LoggedInUser.user = user;
+                    return RedirectToAction("Profile", "User");
+                }
+                
+            }
+            TempData["Error"] = "Error, gebruikersnaam of wachtwoord is fout";
+            return View("Login");
+        }
+
+        [HttpGet]
+        public IActionResult Profile()
+        {
+            @ViewBag.Username = LoggedInUser.user.Username;
+            @ViewBag.Password = LoggedInUser.user.Password;
+            @ViewBag.Email = LoggedInUser.user.Email;
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Profile(User user, string Password, string Username, string Email)
+        {
+            user.Username = Username;
+            user.Password = Password;
+            user.Email = Email;
+            user.Id = LoggedInUser.user.Id;
+            user.RegistrationDate = LoggedInUser.user.RegistrationDate;
+            user.Likes = LoggedInUser.user.Likes;
+            user.Banned = LoggedInUser.user.Banned;
+            user.Moderator = LoggedInUser.user.Moderator;
+            LoggedInUser.user = user;
+            _context.Update(user);
+            _context.SaveChanges();
+            return View();
+        }
+
+        public IActionResult Friends()
+        {
+            return View();
+        }
+        public JsonResult GetSearchValue(string searchInput1)
+        {
+            //AppDBContext appDB = new AppDBContext();
+            List<ZuydWorld.Models.User> users = _context.Userss.Where(x => x.Username.Contains(searchInput1)).Select(x => new User
+            {
+                Id = x.Id,
+                Email = x.Username
+            }).ToList();
+            //return new JsonResult (Value = Users);
+            return Json(users);
         }
     }
 }

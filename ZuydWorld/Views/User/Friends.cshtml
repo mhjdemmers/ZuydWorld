@@ -1,0 +1,134 @@
+﻿<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<style>
+    .sidebar {
+        background-color: #7cbcff;
+        color: #101010;
+        padding: 10px;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 250px;
+        height: calc(100vh - 50px);
+        overflow-x: hidden;
+        overflow-y: auto;
+        z-index: 0;
+    }
+
+    .category {
+        background-color: white;
+        margin-bottom: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 10px;
+        border-radius: 10px;
+    }
+
+    .delete {
+        background-color: red;
+        margin-bottom: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 10px;
+        border-radius: 10px;
+        position: absolute;
+        bottom: 30px;
+        width: 80%;
+    }
+
+    .category:hover,
+    .category.home:hover {
+        background-color: #6E86FF;
+        color: #fff;
+    }
+
+    .category.home {
+        background-color: #6266a5;
+        color: white;
+        padding-top: 10px;
+    }
+    .circle {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+        .circle img {
+            width: 100%;
+            height: 100%;
+        }
+</style>
+<div class="sidebar">
+    <div class="empty-space"></div>
+    <a asp-action="Index" asp-controller="Home" style="color:black; text-decoration:none;"><div class="category">Home</div></a>
+    <a href="Profile" style="color:black; text-decoration:none;"><div class="category">Profile</div></a>
+    <a href="Friends" style="color:black; text-decoration:none;"><div class="category home">Friends</div></a>
+    <a href="" style="color:black; text-decoration:none;"><div class="category">Settings</div></a>
+    <a href="" style="color:black; text-decoration:none;"><div class="category">Statistics</div></a>
+</div>
+<div style=" margin-left:200px; height: 200px; width:700px; overflow-y: scroll;display: flex;align-items: baseline; ">
+    <div class="circle">
+        <img src="/background6.jpg" alt="Your image">
+
+    </div>
+    <a style="margin-left:10px; ">Username</a>
+    <button style="float:right; border:none; height:35px; background-color:lightskyblue; width:150px; border-radius:10px; margin-left:250px ">Message</button>
+    <button style="float:right; border:none; height:35px; background-color:orangered; width:150px; border-radius:10px; margin-left:20px; margin-right:10px">Remove Friend</button>
+</div>
+<div style="float:left; margin-left:200px;">
+    <h4>Add Friend</h4>
+    <h6>You can add friends with their username</h6>
+    <input id="searchInput1" style="width:90%; border-radius:5px" name="email" />
+    <button style="width: 90%;
+    height: 40px;
+    border-radius: 10px;
+    background-color: lightskyblue;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    margin: 5px 0;">
+        Send Friend Request
+    </button>
+</div>
+
+<script>
+    $("#searchInput1").autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                url: "/User/GetSearchValue",
+                dataType: "json",
+                data: {
+                    searchInput1: request.term
+                },
+                success: function (data) {
+                    response($.map(data, function (item) {
+                        return {
+                            lable: item,
+                            value: item.email
+                        }
+                    }));
+                }
+            });
+        },
+
+    });
+</script>
