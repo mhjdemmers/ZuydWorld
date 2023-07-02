@@ -177,6 +177,12 @@ namespace ZuydWorld.Controllers
                     user.Email = gebruikersnaamofemail;
                     user.Password = wachtwoord;
                     user.Id = User.Id;
+                    user.Username = User.Username;
+                    user.Moderator = User.Moderator;
+                    user.Banned = user.Banned;
+                    user.Likes = user.Likes;
+                    user.RegistrationDate = user.RegistrationDate;
+                    LoggedInUser.user = user;
                     return RedirectToAction("Profile", "User");
                 }
                 
@@ -184,8 +190,30 @@ namespace ZuydWorld.Controllers
             TempData["Error"] = "Error, gebruikersnaam of wachtwoord is fout";
             return View("Login");
         }
+
+        [HttpGet]
         public IActionResult Profile()
         {
+            @ViewBag.Username = LoggedInUser.user.Username;
+            @ViewBag.Password = LoggedInUser.user.Password;
+            @ViewBag.Email = LoggedInUser.user.Email;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Profile(User user, string Password, string Username, string Email)
+        {
+            user.Username = Username;
+            user.Password = Password;
+            user.Email = Email;
+            user.Id = LoggedInUser.user.Id;
+            user.RegistrationDate = LoggedInUser.user.RegistrationDate;
+            user.Likes = LoggedInUser.user.Likes;
+            user.Banned = LoggedInUser.user.Banned;
+            user.Moderator = LoggedInUser.user.Moderator;
+            LoggedInUser.user = user;
+            _context.Update(user);
+            _context.SaveChanges();
             return View();
         }
 
