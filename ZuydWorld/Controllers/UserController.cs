@@ -221,5 +221,16 @@ namespace ZuydWorld.Controllers
         {
             return View();
         }
+        public JsonResult GetSearchValue(string searchInput1)
+        {
+            //AppDBContext appDB = new AppDBContext();
+            List<ZuydWorld.Models.User> users = _context.Userss.Where(x => x.Username.Contains(searchInput1)).Select(x => new User
+            {
+                Id = x.Id,
+                Email = x.Username
+            }).ToList();
+            //return new JsonResult (Value = Users);
+            return Json(users);
+        }
     }
 }

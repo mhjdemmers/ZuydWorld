@@ -1,4 +1,8 @@
-﻿<style>
+﻿<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<style>
     .sidebar {
         background-color: #7cbcff;
         color: #101010;
@@ -91,7 +95,7 @@
 <div style="float:left; margin-left:200px;">
     <h4>Add Friend</h4>
     <h6>You can add friends with their username</h6>
-    <input style="width:90%; border-radius:5px" name="email" />
+    <input id="searchInput1" style="width:90%; border-radius:5px" name="email" />
     <button style="width: 90%;
     height: 40px;
     border-radius: 10px;
@@ -105,3 +109,26 @@
         Send Friend Request
     </button>
 </div>
+
+<script>
+    $("#searchInput1").autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                url: "/User/GetSearchValue",
+                dataType: "json",
+                data: {
+                    searchInput1: request.term
+                },
+                success: function (data) {
+                    response($.map(data, function (item) {
+                        return {
+                            lable: item,
+                            value: item.email
+                        }
+                    }));
+                }
+            });
+        },
+
+    });
+</script>
