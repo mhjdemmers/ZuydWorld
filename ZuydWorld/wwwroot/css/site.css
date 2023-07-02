@@ -103,12 +103,15 @@ input:valid ~ label {
     top: 20px;
 }
 
+.forget label span {
+    margin-right: 10px;
+}
 .forget {
     margin: -15px 0 15px;
     font-size: .9em;
     color: #fff;
     display: flex;
-    justify-content: space-between;
+
 }
 
     .forget label input {
